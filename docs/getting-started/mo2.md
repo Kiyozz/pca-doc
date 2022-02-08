@@ -1,5 +1,7 @@
 # MO2
 
+_You did not configure PCA? Then go [here](configuration) first_.
+
 There are two methods to set up PCA alongside MO2. Start PCA and go to the settings page.
 
 ## First

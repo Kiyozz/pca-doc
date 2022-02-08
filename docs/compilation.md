@@ -11,7 +11,11 @@ _Are you using MO2? Be sure to read [this](getting-started/mo2) before_.
 
 ## Get started
 
-You have three ways to get started.
+You have four ways to get started.
+
+### Drag and Drop
+
+Drop any `.psc` file into the app.
 
 ### Search for files
 
