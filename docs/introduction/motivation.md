@@ -8,8 +8,9 @@ Creation Kit is the tool to compile `.psc` into `.pex`. But CK lack performances
 
 This is why PCA is born.
 
-Development of PCA started in 2018. It is created by Lyrod, who has many usernames: Wk (mainly), Kiyozz (Github), and WushuLate (Nexus mods username).
+Development of PCA started in 2018. It is created by Lyrod,
+who has many usernames: Wk (mainly), [Kiyozz](https://github.com/Kiyozz) (Github), and [WushuLate](https://www.nexusmods.com/users/10659062) (Nexus mods username).
 
-PCA first focus is user experience, and the user interface.
+PCA first focus is user experience, and user interface.
 
-It has great features, and helps the mod developer to compile files easily.
+PCA helps the mod developer with many great features.
