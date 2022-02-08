@@ -6,6 +6,7 @@ Start PCA and go to the settings page.
 
 ### Game
 
+- `game type`: Check the game you're using.
 - `game path`: this is your game folder. Mainly, the folder containing the exe of your game.
 - `compiler path`: if you correctly install CK,
   you'll have a file named `PapyrusCompiler.exe` inside the `{game path}\Papyrus Compiler` folder. This is what PCA needs to compile your files.
@@ -24,3 +25,7 @@ So you're done!
 > I'm using MO2. Do I need to configure MO2 inside of PCA?
 
 Refer to [this](mo2).
+
+> I'm using a lot of instances. I need something to quickly compile files easily for all instances.
+
+Refer to [Application Parameters](../advanced-features/application-parameters)

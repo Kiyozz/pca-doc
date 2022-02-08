@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Compilation
 
-_Are you using the **Groups** feature? Refer to [this](advanced-features/groups)_.
+_Are you using the **Groups** feature? Refer to [this](basic-features/groups)_.
 
 _Are you using MO2? Be sure to read [this](getting-started/mo2) before_.
 
@@ -13,7 +13,7 @@ _Are you using MO2? Be sure to read [this](getting-started/mo2) before_.
 
 You have three ways to get started.
 
-### Search for scripts
+### Search for files
 
 Use the "Search scripts" button at the top. Then select all psc files you need to compile.
 
@@ -23,4 +23,4 @@ Use the [Recent files](basic-features/recent-files) feature.
 
 ### Groups
 
-Use the [Groups](advanced-features/groups) feature.
+Use the [Groups](basic-features/groups) feature.

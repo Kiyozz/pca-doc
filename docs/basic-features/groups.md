@@ -4,9 +4,11 @@ sidebar_position: 1
 
 # Groups
 
+_Compile a list of files quickly_
+
 ## Description
 
-PCA has a feature called "Groups". A group is a list of files to compile.
+A group is a list of files.
 
 With a group, you can add all files inside it to the compilation with one click.
 

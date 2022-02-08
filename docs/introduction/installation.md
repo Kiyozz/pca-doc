@@ -11,16 +11,16 @@ We recommend not installing PCA inside directory that need admin privilege (main
 
 ## Requirements
 
-PCA requires **Creation Kit** (CK) to compile your scripts.
+PCA requires **Creation Kit** (CK) to compile your files.
 
-- For AE/SE/LE: CK is available on [Steam](https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/).
+- For AE/SE/VR/LE: CK is available on [Steam](https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/).
   Download it from your Steam library in **Tools** section.
 - For FO4: CK is available on the Bethesda Launcher.
 
 Then, you need to extract the `Data\Scripts.zip` file which contains all basic psc files
 to compile any papyrus script. This file is available when CK is installed.
 
-### For SE and AE
+### For SE, AE and VR
 
 Make sure the files is available in `Data\Source\Scripts`
 
@@ -48,6 +48,7 @@ Only purchased versions are supported.
 - **PCA**: Papyrus Compiler App
 - **AE**: Skyrim Anniversary Edition
 - **SE**: Skyrim Special Edition
+- **VR**: Skyrim VR
 - **LE**: Skyrim Legendary Edition
 - **FO4**: Fallout 4
 - **CK**: Creation Kit
