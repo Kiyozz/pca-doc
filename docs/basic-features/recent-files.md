@@ -1,6 +1,8 @@
 # Recent files
 
-After you restart PCA, you maybe want to re-compile your last script. PCA has a feature to help you with this.
+## Description
+
+After you restart PCA, you maybe want to re-compile your scripts. PCA has a feature to help you with that.
 
 After any compilation, you may add any script you compiled with the "Recent files" button at the top.
 
