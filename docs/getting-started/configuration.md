@@ -23,4 +23,4 @@ So you're done!
 
 > I'm using MO2. Do I need to configure MO2 inside of PCA?
 
-Refer to [this](mo2)
+Refer to [this](mo2).
