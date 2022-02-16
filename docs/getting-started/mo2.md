@@ -1,6 +1,10 @@
+---
+sidebar_position: 2
+---
+
 # MO2
 
-_You did not configure PCA? Then go [here](configuration) first_.
+_You did not configure PCA yet? Then go [here](configuration) first_.
 
 There are two methods to set up PCA alongside MO2. Start PCA and go to the settings page.
 
@@ -16,4 +20,4 @@ There are two methods to set up PCA alongside MO2. Start PCA and go to the setti
 
 When running PCA inside MO2, you do not need to use PCA's MO2 integration.
 
-- `use mo2`: uncheck this box.
+- `using mo2`: uncheck this box.

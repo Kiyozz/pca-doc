@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Configuration
 
 You can follow the in-app tutorial if you are starting PCA for the first time.
@@ -28,4 +32,4 @@ Refer to [this](mo2).
 
 > I'm using a lot of instances. I need something to quickly compile files easily for all instances.
 
-Refer to [Application Parameters](../advanced-features/application-parameters)
+Refer to [Application Parameters](../advanced-features/application-parameters).
