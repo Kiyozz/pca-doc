@@ -32,6 +32,14 @@ const config = {
           // Please change this to your repo.
           editUrl: githubDocLink,
         },
+        blog: {
+          routeBasePath: "/changelogs",
+          blogTitle: "Changelogs",
+          blogDescription: "PCA changelogs",
+          blogSidebarTitle: "Versions",
+          showReadingTime: false,
+          postsPerPage: 1,
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -54,6 +62,10 @@ const config = {
             docId: "introduction/installation",
             position: "left",
             label: "Docs",
+          },
+          {
+            to: "changelogs",
+            label: "Changelogs",
           },
           {
             href: nexusModsSELink,
@@ -89,6 +101,10 @@ const config = {
               {
                 label: "Nexus mods LE",
                 href: nexusModsLELink,
+              },
+              {
+                label: "Help",
+                to: "/docs/support",
               },
             ],
           },

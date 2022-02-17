@@ -46,9 +46,9 @@ Only purchased versions are supported.
 ## Definitions
 
 - **PCA**: Papyrus Compiler App
+- **CK**: Creation Kit
 - **AE**: Skyrim Anniversary Edition
 - **SE**: Skyrim Special Edition
 - **VR**: Skyrim VR
 - **LE**: Skyrim Legendary Edition
 - **FO4**: Fallout 4
-- **CK**: Creation Kit
