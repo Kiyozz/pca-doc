@@ -6,16 +6,16 @@ sidebar_position: 4
 
 ## Download PCA
 
-[Download the latest version of PCA on Nexus mods](https://www.nexusmods.com/skyrimspecialedition/mods/23852) and extract it anywhere you want.
-We recommend not installing PCA inside directory that need admin privilege (mainly Program Files folder).
+[Download](https://www.nexusmods.com/skyrimspecialedition/mods/23852) the latest version of PCA on Nexus mods and extract it anywhere you want.
+Installing PCA inside a directory that needs admin privileges (mainly Program Files folder) is **not recommended**.
 
 ## Requirements
 
-PCA requires **Creation Kit** (CK) to compile your files.
+PCA requires **Creation Kit** (CK) to compile your files. _More ways could come later_.
 
 - For AE/SE/VR/LE: CK is available on [Steam](https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/).
   Download it from your Steam library in **Tools** section.
-- For FO4: CK is available on the Bethesda Launcher.
+- For FO4: CK is available on the [Bethesda Launcher](https://www.bethesda.net/en/game/bethesda-launcher).
 
 Then, you need to extract the `Data\Scripts.zip` file which contains all basic psc files
 to compile any papyrus script. This file is available when CK is installed.

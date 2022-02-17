@@ -31,11 +31,12 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title="Home"
+      description={`Documentation site for ${siteConfig.title}`}
+      wrapperClassName={styles.wrapper}
     >
       <HomepageHeader />
-      <main>
+      <main className={styles.main}>
         <HomepageFeatures />
       </main>
     </Layout>

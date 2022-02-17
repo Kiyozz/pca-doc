@@ -50,10 +50,6 @@ const config = {
         },
         items: [
           {
-            type: "docsVersionDropdown",
-            href: "/docs/introduction/installation",
-          },
-          {
             type: "doc",
             docId: "introduction/installation",
             position: "left",
@@ -78,8 +74,8 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Getting started",
-                to: "/docs/introduction",
+                label: "Installation",
+                to: "/docs/introduction/installation",
               },
             ],
           },

@@ -10,6 +10,16 @@
   overflow: hidden;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+}
+
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
