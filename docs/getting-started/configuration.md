@@ -6,7 +6,7 @@ sidebar_position: 1
 
 You can follow the in-app tutorial if you are starting PCA for the first time.
 
-Start PCA and go to the settings page.
+Go to the settings page.
 
 ### Game
 
@@ -29,3 +29,11 @@ Refer to [this](mo2).
 > I'm using a lot of instances. I need something to quickly compile files easily for all instances.
 
 Refer to [Application Parameters](../advanced-features/application-parameters).
+
+### Telemetry
+
+Support PCA authors by providing anonymous data about how you use PCA.
+
+PCA will collect telemetry data for the purpose of analyzing used functionality and improving relevant features.
+
+Examples of collected data include group and compilation data, errors, and timestamps of various app events.

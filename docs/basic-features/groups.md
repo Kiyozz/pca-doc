@@ -4,8 +4,6 @@ sidebar_position: 1
 
 # Groups
 
-_Compile a list of files quickly_
-
 ## Description
 
 A group is a list of files.
