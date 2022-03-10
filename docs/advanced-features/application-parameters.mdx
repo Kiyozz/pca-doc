@@ -2,6 +2,9 @@
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
 # Application Parameters
 
 _I'm in love with the command line_
@@ -22,24 +25,30 @@ List of parameters:
 
 ## Usage
 
-### Classic
+<Tabs>
+  <TabItem value="classic" label="Classic" default>
+<p>
+  Create a new file <code>PCA SE-with-args.cmd</code> and type:
+</p>
 
-Create a new file `PCA SE-with-args.cmd` with:
-
-```shell
-"./PCA SE.exe" --game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"
-```
+<pre className="language-shell">
+  "./PCA SE.exe" --game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"
+</pre>
 
 :::note
-- Skyrim LE, use `./PCA LE.exe` and `--game-type "Skyrim LE"` instead.
-- Fallout 4, use `--game-type "Fallout 4"` instead.
+- Skyrim LE, use <code>"./PCA LE.exe"</code> and <code>--game-type "Skyrim LE"</code> instead.
+- Fallout 4, use <code>--game-type "Fallout 4"</code> instead.
 :::
 
 Open PCA by executing this new file.
-
-### MO2
+  </TabItem>
+  <TabItem value="mo2" label="MO2">
 
 Create a MO2 executable:
+<ul>
+  <li>Target: <code>PCA SE.exe</code></li>
+  <li>Arguments: <code>--game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"</code></li>
+</ul>
 
-- Target: `PCA SE.exe`
-- Arguments: `--game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"`
+  </TabItem>
+</Tabs>
