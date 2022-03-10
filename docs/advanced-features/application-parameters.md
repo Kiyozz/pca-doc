@@ -30,6 +30,11 @@ Create a new file `PCA SE-with-args.cmd` with:
 "./PCA SE.exe" --game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"
 ```
 
+:::note
+- Skyrim LE, use `./PCA LE.exe` and `--game-type "Skyrim LE"` instead.
+- Fallout 4, use `--game-type "Fallout 4"` instead.
+:::
+
 Open PCA by executing this new file.
 
 ### MO2

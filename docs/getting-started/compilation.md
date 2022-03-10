@@ -8,7 +8,6 @@ _Are you using the **Groups** feature? Refer to [this](../basic-features/groups)
 
 _Are you using MO2? Be sure to read [this](mo2) before_.
 
-
 ## Get started
 
 You have four ways to get started.
@@ -23,8 +22,8 @@ Use the "Search scripts" button at the top. Then select all psc files you need t
 
 ### Recent files
 
-Use the [Recent files](../basic-features/recent-files) feature.
+Check [Recent files](../basic-features/recent-files) feature.
 
 ### Groups
 
-Use the [Groups](../basic-features/groups) feature.
+Check [Groups](../basic-features/groups) feature.
