@@ -3,14 +3,11 @@ import TabItem from '@theme/TabItem'
 
 # Support
 
-:::info
+:::warning
 **We do not provide support for any papyrus scripting problem**.
 You may ask for help about scripting problems on [Nexus mods forum](https://nexusmods.com/forum).
 
-- `unable to locate script x`
-- `is not a known user-defined type`
-
-are papyrus script problems.
+_`unable to locate script x`_ and _`is not a known user-defined type`_ are papyrus scripting problems.
 :::
 
 ## Having a bug?
@@ -19,29 +16,23 @@ Before reporting a bug, provide a debug log in your issue.
 
 ### How can I get a debug log?
 
-<Tabs groupId="game-versions" lazy>
-  <TabItem value="se-ae-vr-fo4" label="SE, AE, VR, or FO4" default>
-    Use <code>PCA SE-debug.exe.cmd</code> instead of <code>PCA SE.exe</code>.
+<Tabs lazy>
+  <TabItem value="manual" label="Manual" default>
+    <p>
+      Use <code>PCA SE-debug.exe.cmd</code> instead of <code>PCA SE.exe</code>.
+    </p>
   </TabItem>
-  <TabItem value="le" label="LE">
-    Use <code>PCA LE-debug.exe.cmd</code> instead of <code>PCA LE.exe</code>.
-  </TabItem>
-</Tabs>
-
-#### ➡️ But, I'm using MO2, and I'm starting PCA with MO2
-
-<Tabs groupId="game-versions" lazy>
-  <TabItem value="se-ae-vr-fo4" label="SE, AE, VR, or FO4" default>
-    Edit the executable entry and use <code>PCA SE-debug.exe.cmd</code> instead of <code>PCA SE.exe</code>.
-    If you do not see this file, please change the filter (bottom right or the popup) and allow any files.
-  </TabItem>
-  <TabItem value="le" label="LE">
-    Edit the executable entry and use <code>PCA LE-debug.exe.cmd</code> instead of <code>PCA LE.exe</code>.
-    If you do not see this file, please change the filter (bottom right or the popup) and allow any files.
+  <TabItem value="mo2" label="MO2">
+      <p>
+        Edit the executable entry and use <code>PCA SE-debug.exe.cmd</code> instead of <code>PCA SE.exe</code>.
+        If you do not see this file, please change the filter (bottom right of the popup) and allow any files.
+      </p>
   </TabItem>
 </Tabs>
 
-Then,
+:::info
+For Skyrim LE, use <code>PCA LE-debug.exe.cmd</code> instead of <code>PCA LE.exe</code>
+:::
 
 Run the `.exe.cmd` file, redo the bug and if you still have a bug: open the log file.
 
