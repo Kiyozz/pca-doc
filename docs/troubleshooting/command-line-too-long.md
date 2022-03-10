@@ -1,6 +1,6 @@
 # Command line is too long
 
-If you have this error, you're using MO2 PCA's integration.
+If you have this error, you're using MO2 PCA's integration and a **lot** of mods.
 
 MO2 integration has a limitation due to Windows Command Line capability.
 

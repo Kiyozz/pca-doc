@@ -5,8 +5,6 @@ You may ask questions about scripting problems on [Nexus mods forum](https://nex
 
 ## Having a bug?
 
-To report any bugs, please fill an issue on [PCA GitHub](https://github.com/Kiyozz/papyrus-compiler-app/issues).
-
 Before reporting a bug, provide a debug log in your issue.
 
 ### How can I get a debug log?
@@ -28,3 +26,7 @@ Then,
 Run the `.exe.cmd` file, redo the bug and if you still have a bug: open the log file.
 
 To open the log file, click the PCA logo button (at the top left) and select `File` - `Logs...`.
+
+## Reporting a bug
+
+To report any bugs, please fill an issue on [PCA GitHub](https://github.com/Kiyozz/papyrus-compiler-app/issues).

@@ -8,6 +8,23 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  /* noinspection CssUnknownTarget */
+  background: url('/img/dragon.jpeg') no-repeat bottom / cover;
+  color: white;
+}
+
+@media (min-width: 800px) {
+  .heroBanner {
+    /* noinspection CssUnknownTarget */
+    background: url('/img/dragon@2x.jpeg') no-repeat bottom / cover;
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroBanner {
+    /* noinspection CssUnknownTarget */
+    background: url('/img/dragon@3x.jpeg') no-repeat bottom / cover;
+  }
 }
 
 .wrapper {
