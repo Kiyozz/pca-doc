@@ -9,6 +9,10 @@ tags: [changelog]
 
 ### Features
 
+- You can now compile the script of your choice from the list
+
+  ![script_list.png](script_list.png)
+
 - Recent files dialog displays more scripts at once
   
   ![recent-files.png](recent-files.png)
