@@ -107,11 +107,11 @@ const config = {
             title: "More",
             items: [
               {
-                label: "GitHub",
+                label: "PCA GitHub",
                 href: env.githubLink,
               },
               {
-                label: "Github documentation",
+                label: "Documentation Github",
                 href: env.githubDocLink,
               },
             ],
