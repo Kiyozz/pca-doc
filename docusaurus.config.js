@@ -3,12 +3,7 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-
-const nexusModsLELink = "https://www.nexusmods.com/skyrim/mods/96339";
-const nexusModsSELink =
-  "https://www.nexusmods.com/skyrimspecialedition/mods/23852";
-const githubLink = "https://github.com/Kiyozz/papyrus-compiler-app";
-const githubDocLink = "https://github.com/Kiyozz/pca-doc";
+const env = require("./env");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -30,7 +25,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: githubDocLink,
+          editUrl: env.githubDocLink,
         },
         blog: {
           routeBasePath: "/changelogs",
@@ -68,12 +63,12 @@ const config = {
             label: "Changelogs",
           },
           {
-            href: nexusModsSELink,
-            label: "Nexus mods",
+            href: env.nexusModsSELink,
+            label: "Download",
             position: "right",
           },
           {
-            href: githubLink,
+            href: env.githubLink,
             label: "GitHub",
             position: "right",
           },
@@ -96,11 +91,11 @@ const config = {
             items: [
               {
                 label: "Nexus mods SE",
-                href: nexusModsSELink,
+                href: env.nexusModsSELink,
               },
               {
                 label: "Nexus mods LE",
-                href: nexusModsLELink,
+                href: env.nexusModsLELink,
               },
               {
                 label: "Help",
@@ -113,11 +108,11 @@ const config = {
             items: [
               {
                 label: "GitHub",
-                href: githubLink,
+                href: env.githubLink,
               },
               {
                 label: "Github documentation",
-                href: githubDocLink,
+                href: env.githubDocLink,
               },
             ],
           },

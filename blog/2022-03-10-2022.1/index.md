@@ -9,6 +9,10 @@ tags: [changelog]
 
 ### Features
 
+- Access the documentation via NexusMods or with the new button at the bottom left
+
+  ![documentation.png](documentation.png)
+
 - You can now compile the script of your choice from the list
 
   ![script_list.png](script_list.png)

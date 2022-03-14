@@ -1,5 +1,5 @@
-const github = "https://github.com/Kiyozz/papyrus-compiler-app";
+import { githubLink } from "../../env";
 
 export const issueUrl = (issue: number) => {
-  return `${github}/issues/${issue}`;
+  return `${githubLink}/issues/${issue}`;
 };

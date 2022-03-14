@@ -3,6 +3,33 @@
  * and scoped locally.
  */
 
+.heroAppIcon {
+  width: 60px;
+  height: 60px;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.heroTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroTitle span {
+  display: block;
+  margin-left: 1rem;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+}
+
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -13,7 +40,7 @@
   color: white;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 997px) {
   .heroBanner {
     /* noinspection CssUnknownTarget */
     background: url('/img/dragon@2x.jpeg') no-repeat bottom / cover;
@@ -47,4 +74,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.ml4 {
+  margin-left: 1rem;
 }
