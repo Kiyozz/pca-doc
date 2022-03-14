@@ -5,15 +5,26 @@ authors: [wk]
 tags: [changelog]
 ---
 
+import GithubIssue from "../../src/components/GithubIssue";
+
 # 2022.1
 
 ### Features
 
-- Access the documentation via NexusMods or with the new button at the bottom left
+- The configuration is now checked when you enter the compilation page, giving you any tips if your configuration is wrong (<GithubIssue issue={138} />)
+
+- Button to open compilation logs now changes color at the end of a compilation (<GithubIssue issue={143} />):
+
+  - Green: when all scripts compile successfully
+  - Red: when a script gone wrong
+
+- Recent files: option to show the script full path (<GithubIssue issue={130} />)
+
+- Access the documentation via NexusMods or with the new button at the bottom left (<GithubIssue issue={148} />)
 
   ![documentation.png](documentation.png)
 
-- You can now compile the script of your choice from the list
+- You can now compile the script of your choice from the list (<GithubIssue issue={147} />)
 
   ![script_list.png](script_list.png)
 
