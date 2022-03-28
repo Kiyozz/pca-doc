@@ -4,6 +4,8 @@
  * work well for content-centric websites.
  */
 
+@import "~react-slideshow-image/dist/styles.css";
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2c5896;
@@ -36,4 +38,12 @@ html[data-theme='dark'] {
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+button.nav.default-nav:first-of-type {
+  margin-right: -45px;
+}
+
+button.nav.default-nav:last-of-type {
+  margin-left: -45px;
 }

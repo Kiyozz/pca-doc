@@ -4,8 +4,9 @@ import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
-import HomepageFeatures from "../components/HomepageFeatures";
+import HomepageFeatures from "../components/HomepageFeatures/HomepageFeatures";
 import { nexusModsSELink } from "../../env";
+import HomepageScreenshots from "@site/src/components/HomepageScreenshots/HomepageScreenshots";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -15,7 +16,11 @@ function HomepageHeader() {
       <div className={styles.heroBg} />
       <div className={clsx("container", styles.heroContent)}>
         <h1 className={clsx("hero__title", styles.heroTitle)}>
-          <img className={styles.heroAppIcon} src="/img/logo.svg" />
+          <img
+            className={styles.heroAppIcon}
+            src="/img/logo.svg"
+            alt="PCA logo"
+          />
           <span>{siteConfig.title}</span>
         </h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
@@ -52,6 +57,7 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main className={styles.main}>
         <HomepageFeatures />
+        <HomepageScreenshots />
       </main>
     </Layout>
   );
