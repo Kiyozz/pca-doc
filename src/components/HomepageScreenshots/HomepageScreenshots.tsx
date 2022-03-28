@@ -1,6 +1,7 @@
 import React from "react";
 import ThemedImage from "@theme/ThemedImage";
 import { Slide } from "react-slideshow-image";
+import styles from "./HomepageScreenshots.module.css";
 
 const screens = [
   "1_compilation.png",
@@ -14,7 +15,7 @@ const screens = [
 const HomepageScreenshots = () => {
   return (
     <div className="container">
-      <Slide easing="ease" canSwipe autoplay={false}>
+      <Slide easing="ease" canSwipe autoplay={false} cssClass={styles.slider}>
         {screens.map((screen) => {
           return (
             <div className="each-slide" key={screen}>
