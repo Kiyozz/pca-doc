@@ -11,46 +11,62 @@ import GithubIssue from "../../src/components/GithubIssue";
 
 ### Bug fixes
 
-- Fallout 4 supportgit commi
+- ## **Fallout 4 support**
 
 - When closing the drawer panel, links could break into multiple lines
 
+- Duplicated logs entry
+
 ### Features
 
-- The configuration is now checked when you enter the compilation page, giving you any tips if your configuration is wrong (<GithubIssue issue={138} />)
+- New compilation logs view
 
-- Button to open compilation logs now changes color at the end of a compilation (<GithubIssue issue={143} />):
+![new_logs.png](new_logs.png)
 
-  - Green: when all scripts compile successfully
-  - Red: when a script gone wrong
+- Group preview is replaced with a new "more details" button
 
-- Recent files: option to show the script full path (<GithubIssue issue={130} />)
+![group_preview.png](group_preview.png)
+![group_preview_open.png](group_preview_open.png)
 
-- Access the documentation via NexusMods or with the new button at the bottom left (<GithubIssue issue={148} />)
+- New design
 
-  ![documentation.png](documentation.png)
+- The configuration is now checked when you enter the compilation page, giving you any tips if your configuration is wrong.
 
-- You can now compile the script of your choice from the list (<GithubIssue issue={147} />)
+- Better mo2 configuration check
 
-  ![script_list.png](script_list.png)
+- Button to open compilation logs now changes color at the end of a compilation
+
+_Green_: when all scripts compile successfully
+
+_Red_: when a script gone wrong
+
+- New documentation released: access the documentation via NexusMods or with the new button at the bottom left
+
+![documentation.png](documentation.png)
+
+- You can now compile the script of your choice from the list
+
+![script_list.png](script_list.png)
+
+- Recent files: option to show the script's full path (<GithubIssue issue="130" />)
 
 - Recent files dialog displays more scripts at once
 
-  ![recent-files.png](recent-files.png)
+It is now easier to click on a line
+
+![recent-files.png](recent-files.png)
 
 - A loading screen now appear when the application start
 
-  ![loading.png](loading.png)
+![loading.png](loading.png)
 
 - New application titlebar
 
-  The application menu is now accessible with the application icon at the left
+The application menu is now accessible with the application icon at the left
 
-  ![new-titlebar.png](new-titlebar.png)
+![new-titlebar-open.png](new-titlebar-open.png)
 
-  ![new-titlebar-open.png](new-titlebar-open.png)
-
-- The position of the app is now memoized
+- The position of the app is now memoized between launchs
 - Bumps dependencies
 - Changelog window correctly displays images
 - The application restarts when resetting the configuration
