@@ -1,38 +1,39 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
-
-import Tabs from '@theme/Tabs'
-import TabItem from '@theme/TabItem'
 
 # MO2
 
-_You did not configure PCA yet? Then go [here](configuration) first_.
+:::danger[Removed in 5.9.0]
+PCA's own MO2 integration was **removed**. PCA no longer scans your mods folder, and the `mo2 instance` setting does nothing.
 
-There are two methods to set up PCA alongside MO2. Start PCA and go to the settings page.
+Run PCA **through** MO2 instead — see below. If the option is still enabled in your settings, PCA shows a warning; turn it off.
+:::
 
-<Tabs>
-  <TabItem value="mo2" label="MO2" default>
+## Why it was removed
 
-<ul>
-  <li>
-    <code>using mo2</code>: uncheck this box.
-  </li>
-</ul>
+The integration rebuilt the merged `Data` folder by hand and passed every mod folder to the compiler.
+It broke in two ways that could not be fixed from PCA:
 
-  </TabItem>
-  <TabItem value="pca-integration" label="PCA's integration">
-<ul>
-  <li>
-    <code>using mo2</code>: check this box.
-  </li>
-  <li>
-    <code>mo2 instance</code>: this is the instance folder of your MO2 installation.
-    Mainly, the folder containing <code>downloads</code>, <code>mods</code>, <code>overwrite</code> folders.
-  </li>
-</ul>
+- the command line grew with the number of mods and hit the Windows limit — see [Command line is too long](../troubleshooting/command-line-too-long);
+- when several mods shipped a script with the same name, the wrong one could be compiled.
 
-PCA will then detect all the files needed for the compilation.
+Running PCA as an MO2 executable gives it the real virtual file system, which does both correctly.
 
-  </TabItem>
-</Tabs>
+Using Vortex instead? It needs nothing of the sort, see [Vortex](vortex).
+
+## Run PCA through MO2
+
+1. Open MO2, then the executables dialog (the gears icon).
+2. Add a new executable.
+   - **Title**: `PCA`
+   - **Binary**: the path to `PCA.exe`
+   - **Start in**: the folder holding `PCA.exe`
+3. Confirm, then start `PCA` from the MO2 launcher dropdown.
+
+PCA now sees `Data` the way the game does, mods included, and no configuration is needed on its side beyond the [usual one](configuration).
+
+:::tip[Several instances]
+You can create one entry per instance and pass the configuration on the command line, so each one opens on the right game.
+Refer to [Application Parameters](../advanced-features/application-parameters).
+:::

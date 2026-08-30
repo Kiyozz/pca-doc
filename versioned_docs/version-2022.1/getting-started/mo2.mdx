@@ -1,0 +1,38 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# MO2
+
+_You did not configure PCA yet? Then go [here](configuration) first_.
+
+There are two methods to set up PCA alongside MO2. Start PCA and go to the settings page.
+
+<Tabs>
+  <TabItem value="mo2" label="MO2" default>
+
+<ul>
+  <li>
+    <code>using mo2</code>: uncheck this box.
+  </li>
+</ul>
+
+  </TabItem>
+  <TabItem value="pca-integration" label="PCA's integration">
+<ul>
+  <li>
+    <code>using mo2</code>: check this box.
+  </li>
+  <li>
+    <code>mo2 instance</code>: this is the instance folder of your MO2 installation.
+    Mainly, the folder containing <code>downloads</code>, <code>mods</code>, <code>overwrite</code> folders.
+  </li>
+</ul>
+
+PCA will then detect all the files needed for the compilation.
+
+  </TabItem>
+</Tabs>

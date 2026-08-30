@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "^16.0.0"
+    "node": ">=20.0.0"
   },
+  "packageManager": "pnpm@12.1.0",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start --port 3001",
@@ -18,21 +19,23 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.17",
-    "@docusaurus/preset-classic": "^2.0.0-beta.17",
-    "@mdx-js/react": "^1.6.21",
-    "classnames": "^2.3.1",
-    "clsx": "^1.1.1",
-    "prism-react-renderer": "^1.2.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-slideshow-image": "^3.7.0"
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/faster": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@mdx-js/react": "^3.1.1",
+    "clsx": "^2.1.1",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-slideshow-image": "^4.4.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.17",
-    "@tsconfig/docusaurus": "^1.0.4",
-    "prettier": "^2.5.1",
-    "typescript": "^4.5.2"
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "@types/react": "^19.2.0",
+    "prettier": "^3.6.2",
+    "typescript": "~6.0.3"
   },
   "browserslist": {
     "production": [

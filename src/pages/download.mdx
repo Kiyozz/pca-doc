@@ -1,0 +1,100 @@
+---
+title: Download PCA
+description: Download Papyrus Compiler App for Skyrim SE, AE, LE, VR, Fallout 4 and Starfield.
+keywords:
+  - papyrus compiler app
+  - download
+  - skyrim
+  - fallout 4
+  - starfield
+---
+
+import Link from "@docusaurus/Link";
+import { downloads } from "../../env";
+
+# Download PCA
+
+PCA compiles Papyrus scripts for **Skyrim SE, AE, LE, VR, Fallout 4 and Starfield**.
+
+Since 5.9.0 there is a single executable, `PCA.exe`, for every one of them: download it once, pick your game in the settings.
+
+<div className="margin-bottom--lg">
+  {downloads.map((download) => (
+    <Link
+      key={download.label}
+      className="button button--primary margin-right--sm margin-bottom--sm"
+      href={download.href}
+    >
+      {download.label}
+    </Link>
+  ))}
+</div>
+
+Extract the archive anywhere you want. It is **not recommended** to install PCA inside a directory that needs admin privileges, mainly `Program Files`.
+
+New to PCA? The [installation guide](/docs/introduction/installation) walks you through the whole setup, and a wizard does the same inside the app on first launch.
+
+## Skyrim Special Edition and Anniversary Edition
+
+<Link
+  className="button button--primary margin-bottom--md"
+  href={downloads[0].href}
+>Download PCA for Skyrim SE / AE</Link>
+
+Requires the **Skyrim Special Edition: Creation Kit**, free on Steam.
+
+Extract `Data\Scripts.zip` into `Data`, so the source scripts land in `Data\Source\Scripts`. PCA can do it for you from its [Creation Kit report](/docs/getting-started/creation-kit).
+
+## Skyrim Legendary Edition
+
+<Link
+  className="button button--primary margin-bottom--md"
+  href={downloads[1].href}
+>Download PCA for Skyrim LE</Link>
+
+Requires the **Skyrim Creation Kit**. It has no Steam store page: install it from Library — Tools.
+
+Extract `Data\Scripts.rar` into `Data\Scripts`, so the source scripts land in `Data\Scripts\Source`. PCA cannot open a `.rar`, use 7-Zip or WinRAR.
+
+## Skyrim VR
+
+<Link
+  className="button button--primary margin-bottom--md"
+  href={downloads[2].href}
+>Download PCA for Skyrim VR</Link>
+
+There is no Creation Kit for Skyrim VR. Install the **Skyrim Special Edition** one, choosing the Skyrim VR folder at install time — its compiler works for VR just as well.
+
+## Fallout 4
+
+<Link
+  className="button button--primary margin-bottom--md"
+  href={downloads[3].href}
+>Download PCA for Fallout 4</Link>
+
+Requires the **Fallout 4: Creation Kit**, free on Steam. The Bethesda Launcher was shut down in 2022.
+
+The kit ships one archive per content under `Data\Scripts\Source`, each one sitting in the folder it fills. Extract them where they are.
+
+PCA supports [Papyrus namespaces](/docs/advanced-features/namespaces) and imports only the three roots Fallout 4 actually uses, which keeps the compiler command line short.
+
+## Starfield
+
+<Link
+  className="button button--primary margin-bottom--md"
+  href={downloads[4].href}
+>Download PCA for Starfield</Link>
+
+Requires the **Starfield: Creation Kit**, free on Steam.
+
+Extract the `Scripts` folder of `Tools\ContentResources.zip` into `Data`. The compiler lives in `Tools\Papyrus Compiler`, not `Papyrus Compiler` as on the other games — PCA knows.
+
+[Papyrus namespaces](/docs/advanced-features/namespaces) are supported.
+
+## What you need in every case
+
+- **Windows.** PCA is a Windows application.
+- **The Creation Kit of your game.** It ships the Papyrus compiler and the source scripts every script is compiled against.
+- **A purchased copy of the game.** Only purchased versions are supported.
+
+PCA reads your game folder on first launch and tells you exactly what is missing, with the action that fixes it. See the [Creation Kit report](/docs/getting-started/creation-kit).

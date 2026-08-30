@@ -1,6 +1,6 @@
-import React from "react";
 import ThemedImage from "@theme/ThemedImage";
 import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 import styles from "./HomepageScreenshots.module.css";
 
 const screens = [

@@ -1,0 +1,86 @@
+---
+sidebar_position: 2
+---
+
+# Creation Kit report
+
+## Description
+
+PCA reads your game folder and tells you exactly what is missing, with the action that fixes it.
+
+The report runs:
+
+- during the [setup wizard](../introduction/installation#first-launch), on first launch;
+- in the settings, every time the game, the game folder or the compiler path changes;
+- on the Compilation page, before you compile.
+
+Errors block the compilation. Warnings do not, but they explain failures that would otherwise look random.
+
+Use **Check again** in the settings after fixing something outside of PCA.
+
+## Errors
+
+### The game cannot be found
+
+The game executable is not in the folder you selected.
+
+Pick the folder holding `SkyrimSE.exe`, `TESV.exe`, `SkyrimVR.exe`, `Fallout4.exe` or `Starfield.exe`, depending on your game.
+
+### Creation Kit not installed
+
+No source script, no compiler, no archive: the kit was never installed.
+
+PCA offers to open Steam on the right Creation Kit. See [Requirements](../introduction/installation#requirements).
+
+If you already have a `PapyrusCompiler.exe` somewhere else, you can point PCA to it — the Skyrim Special Edition one compiles for Skyrim VR just as well.
+The **source scripts**, on the other hand, must be in the game folder.
+
+### Source scripts not extracted
+
+The kit is installed, but its source archives are still packed.
+
+PCA lists them and extracts every `.zip` with **Extract all**.
+A `.rar` (Skyrim LE) has to be extracted by hand.
+
+If the extraction fails because the game folder is write protected, extract the archives yourself, or install the game outside of `Program Files`.
+
+See [Extract the source scripts](../introduction/installation#extract-the-source-scripts).
+
+### Papyrus compiler not found
+
+The configured path does not exist, or nothing was configured.
+
+The Creation Kit installs `PapyrusCompiler.exe` in the `Papyrus Compiler` folder of the game — `Tools\Papyrus Compiler` for Starfield.
+Use **Pick PapyrusCompiler.exe** to select it.
+
+### The compiler belongs to another game
+
+The compiler PCA is set to use was installed by a different game. Those compilers are not interchangeable.
+
+It usually means you switched game and the previous compiler path stayed.
+PCA offers to switch to the one your current game installed, when it finds it.
+
+### Source scripts not found
+
+The kit looks installed, but PCA cannot find the reference script it checks (`Actor.psc`, or `Base/Actor.psc` for Fallout 4) in `Data\Scripts\Source` nor `Data\Source\Scripts`.
+
+Check that the archives were extracted, keeping their folders.
+
+## Warnings
+
+### Source scripts are in `Scripts\Source` (Skyrim SE, AE, VR)
+
+Those games keep their sources in `Data\Source\Scripts`, and their Creation Kit only reads that folder.
+`Data\Scripts\Source` is the Skyrim LE folder.
+
+PCA imports the LE folder **first**: an outdated copy of the game scripts left in there shadows the one your game ships, and the compilation fails without an obvious reason.
+
+Move everything from `Data\Scripts\Source` to `Data\Source\Scripts`. PCA opens the folder for you.
+
+### The script extender has no source scripts
+
+SKSE or F4SE is installed, but its `.psc` are not.
+
+Compilation works, but any script using an extender function fails.
+
+Extract the extender's `.psc` into `Data\Source\Scripts` for Skyrim SE, AE and VR, into `Data\Scripts\Source` for Skyrim LE and Fallout 4 — the folder your game reads, which is not always the one the archive is laid out for. See [Script extenders](../introduction/installation#script-extenders).

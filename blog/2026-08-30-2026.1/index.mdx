@@ -1,0 +1,64 @@
+---
+slug: 2026.1
+title: 2026.1
+authors: [wk]
+tags: [changelog]
+---
+
+# 2026.1
+
+_Application version 5.9.0._
+
+The biggest release since 2022.1: Starfield support, Papyrus namespaces, a setup wizard, a Creation Kit report that tells you exactly what is missing — and the end of PCA's MO2 integration.
+
+{/* truncate */}
+
+## Breaking changes
+
+- **One executable.** `PCA SE.exe` and `PCA LE.exe` are gone, replaced by a single `PCA.exe`. The game is picked in the settings, or with `--game-type`.
+- **MO2 integration removed.** PCA no longer scans your mods folder. Run PCA [through MO2](/docs/getting-started/mo2) instead. The setting shows a warning while it is still enabled.
+- **`--debug` removed.** The log level is now a setting, and the `-debug.exe.cmd` launchers are gone.
+
+## Games
+
+- **Starfield is supported.** Pick it in the settings like any other game: PCA finds its compiler in `Tools\Papyrus Compiler`, its sources in `Data\Scripts\Source`, and offers `Starfield_Papyrus_Flags.flg`.
+- **Fallout 4 support is complete.** It compiles the whole game, DLC and creations included, and imports only the roots the game actually uses — which puts the "Command line is too long" error far behind you.
+- **Papyrus namespaces**, for both. The namespace declared in the header (`Scriptname MyMod01:Script`) is given to the compiler, its root folder is imported, and the `.pex` is written to its namespace subfolder. [More details](/docs/advanced-features/namespaces).
+
+## Setting up
+
+A **setup wizard** opens on first launch — game, folder, Creation Kit — and the report it ends on lives in the settings from then on, one click away at any time.
+
+It tells apart a missing Creation Kit, source archives nobody extracted, a compiler it cannot find and missing sources, each with the action that fixes it: install from Steam, extract the archives from PCA, open the folder, or pick `PapyrusCompiler.exe`. It also errors when the configured compiler belongs to another, incompatible game.
+
+Two warnings that explain compilations failing for no apparent reason:
+
+- **Skyrim SE, AE and VR**: source scripts left in `Data\Scripts\Source`, the Skyrim LE folder. PCA imports it first, so an outdated copy of the game scripts left in there shadows the one your game ships.
+- **SKSE or F4SE installed without its source scripts.** Compilation works, but any script calling an extender function fails.
+
+The Compilation page raises them too, not only the errors. [More details](/docs/getting-started/creation-kit).
+
+The in-app tutorial is gone, replaced by the wizard.
+
+## Compilation
+
+- **Compile scripts from any folder.** The script's parent folder is imported automatically, so a script kept anywhere on your disk compiles fine.
+- **Customize the output folder.**
+- **Open the folder the `.pex` was written to**, from the script list and from the compilation logs. Namespaces included.
+- **Anonymization of the compiled scripts**, on by default. The compiler writes your source path, user name and computer name in the `.pex` header; PCA replaces them with random strings of the same lengths. Nothing else is touched. [More details](/docs/advanced-features/anonymization).
+
+## Interface
+
+- **Language switcher** in the settings, English and French, with the native menu following along.
+- **Log level setting**: `error`, `warn`, `info` or `debug`. The log file now also carries what happens in the interface, so a bug report says more.
+- The settings show the **app version**, and can **run the setup wizard again**.
+
+## Fixes
+
+- **The script you picked is the one compiled**, not a namesake found in the game sources. Its folder now comes first among the imports. This mostly bit MO2 users, where `Data` merges every mod.
+- The **Success / Failure** badge on a compilation log entry shows the result of that run, instead of the previous one — and "Failure" on a first run.
+
+## Also
+
+- **Versions are now calendar-style.** This release is `2026.1`, where the previous one was `2022.1`. The application version, `5.9.0`, is still shown in the settings.
+- The documentation moved to [pca.kiyozz.com](https://pca.kiyozz.com).

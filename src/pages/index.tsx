@@ -1,11 +1,11 @@
-import React from "react";
+import type { ReactNode } from "react";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
+import DownloadButton from "../components/DownloadButton/DownloadButton";
 import HomepageFeatures from "../components/HomepageFeatures/HomepageFeatures";
-import { nexusModsSELink } from "../../env";
 import HomepageScreenshots from "@site/src/components/HomepageScreenshots/HomepageScreenshots";
 
 function HomepageHeader() {
@@ -31,22 +31,14 @@ function HomepageHeader() {
           >
             Getting started
           </Link>
-          <Link
-            className={clsx(
-              "button button--primary text--white button--lg",
-              styles.ml4,
-            )}
-            to={nexusModsSELink}
-          >
-            Download
-          </Link>
+          <DownloadButton className={styles.ml4} />
         </div>
       </div>
     </header>
   );
 }
 
-export default function Home(): JSX.Element {
+export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout

@@ -1,21 +1,32 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const { themes } = require("prism-react-renderer");
 const env = require("./env");
+
+const lightCodeTheme = themes.github;
+const darkCodeTheme = themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "PCA",
   tagline: "Your tool to compile papyrus code",
-  url: "https://your-docusaurus-test-site.com",
+  url: env.documentationLink,
   baseUrl: "/",
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "Kiyozz", // Usually your GitHub org/user name.
   projectName: "PCA", // Usually your repo name.
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
+  },
+
+  future: {
+    v4: true,
+  },
 
   presets: [
     [
@@ -24,8 +35,18 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
           editUrl: env.githubDocLink,
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: "2026.1",
+              path: "",
+            },
+            2022.1: {
+              label: "2022.1",
+              banner: "unmaintained",
+            },
+          },
         },
         blog: {
           routeBasePath: "/changelogs",
@@ -34,6 +55,8 @@ const config = {
           blogSidebarTitle: "Versions",
           showReadingTime: false,
           postsPerPage: 1,
+          onInlineAuthors: "ignore",
+          onUntruncatedBlogPosts: "ignore",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -63,9 +86,23 @@ const config = {
             label: "Changelogs",
           },
           {
-            href: env.nexusModsSELink,
+            type: "docsVersionDropdown",
+            position: "right",
+          },
+          {
+            type: "dropdown",
             label: "Download",
             position: "right",
+            items: [
+              {
+                to: env.downloadPageLink,
+                label: "All games",
+              },
+              ...env.downloads.map((download) => ({
+                href: download.href,
+                label: download.label,
+              })),
+            ],
           },
           {
             href: env.githubLink,
@@ -87,19 +124,34 @@ const config = {
             ],
           },
           {
+            title: "Download",
+            // real links, one per game: a <select> would hide them from
+            // crawlers and need JS to go anywhere
+            items: [
+              {
+                label: "All games",
+                to: env.downloadPageLink,
+              },
+              ...env.downloads.map((download) => ({
+                label: download.label,
+                href: download.href,
+              })),
+            ],
+          },
+          {
             title: "Community",
             items: [
               {
-                label: "Nexus mods SE",
+                label: "NexusMods",
                 href: env.nexusModsSELink,
-              },
-              {
-                label: "Nexus mods LE",
-                href: env.nexusModsLELink,
               },
               {
                 label: "Help",
                 to: "/docs/support",
+              },
+              {
+                label: "Public telemetry",
+                href: env.telemetryLink,
               },
             ],
           },

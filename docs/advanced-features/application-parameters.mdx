@@ -9,44 +9,57 @@ import TabItem from '@theme/TabItem'
 
 ## Description
 
-PCA has a feature called **Application Parameters**.
+PCA has a feature called **Application Parameters**: the configuration can be given on the command line, instead of the settings page.
 
-A parameter is a command line flag/arguments.
+Handy when you juggle several games, or several MO2 instances: one shortcut per setup, each opening PCA on the right configuration.
 
-List of parameters:
-- `--game-path`: set the game path inside the configuration.
-- `--game-type`: set the game.
-  Valid entries: `'Skyrim SE'`, `'Skyrim LE'`, `'Skyrim VR'`, `'Fallout 4'`.
-- `--compiler-path`: set the compiler path inside the configuration (path of `PapyrusCompiler.exe`).
-- `--output-path`: set the output path, this is where you're compiled files (`.pex`) will go.
-- `--debug`: enable debug mode. Will output more logs in the console/log file.
+There are four of them, one per setting:
+
+| Parameter | Sets |
+| --- | --- |
+| `--game-type` | the game. One of `"Skyrim SE"`, `"Skyrim LE"`, `"Skyrim VR"`, `"Fallout 4"`, `"Starfield"` |
+| `--game-path` | the game folder |
+| `--compiler-path` | the path of `PapyrusCompiler.exe` |
+| `--output-path` | where the compiled files (`.pex`) go |
+
+:::warning[They are saved]
+A parameter **writes into the configuration**, it is not a one-off override.
+What you pass on the command line is what the settings hold afterwards, and it stays there on the next launch — even one without any parameter.
+:::
+
+An invalid value is ignored, and the setting keeps what it had: an empty path, or a `--game-type` that is not one of the five strings above, spelled exactly.
+
+:::info[`--debug` was removed in 5.9.0]
+The log level is now a setting. Refer to [Configuration](../getting-started/configuration#preferences).
+:::
 
 ## Usage
 
 <Tabs>
   <TabItem value="classic" label="Classic" default>
-<p>
-  Create a new file <code>PCA SE-with-args.cmd</code> and type:
-</p>
 
-<pre className="language-shell">
-  "./PCA SE.exe" --game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"
-</pre>
+Create a new file `PCA-with-args.cmd` next to `PCA.exe` and type:
 
-:::note
-- Skyrim LE, use <code>"./PCA LE.exe"</code> and <code>--game-type "Skyrim LE"</code> instead.
-- Fallout 4, use <code>--game-type "Fallout 4"</code> instead.
-:::
+```shell
+"./PCA.exe" --game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"
+```
 
 Open PCA by executing this new file.
+
+:::note
+For another game, change `--game-type`: `"Skyrim LE"`, `"Skyrim VR"`, `"Fallout 4"` or `"Starfield"`.
+Since 5.9.0 the executable is always `PCA.exe`.
+:::
+
   </TabItem>
   <TabItem value="mo2" label="MO2">
 
 Create a MO2 executable:
-<ul>
-  <li>Target: <code>PCA SE.exe</code></li>
-  <li>Arguments: <code>--game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"</code></li>
-</ul>
+
+- **Binary**: `PCA.exe`
+- **Arguments**: `--game-path "[...]\Skyrim Special Edition" --game-type "Skyrim SE"`
+
+Refer to [MO2](../getting-started/mo2) for the full setup.
 
   </TabItem>
 </Tabs>

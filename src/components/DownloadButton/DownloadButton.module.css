@@ -1,0 +1,22 @@
+.dropdown {
+  /* the hero centers its buttons: the trigger has to size itself, not stretch */
+  display: inline-block;
+  vertical-align: top;
+}
+
+.dropdown > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.caret {
+  border-top: 0.35rem solid;
+  border-right: 0.3rem solid transparent;
+  border-left: 0.3rem solid transparent;
+  transition: transform var(--ifm-transition-fast);
+}
+
+.dropdown:global(.dropdown--show) .caret {
+  transform: rotate(180deg);
+}

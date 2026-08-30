@@ -1,0 +1,43 @@
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Support
+
+:::warning
+**We do not provide support for any papyrus scripting problem**.
+You may ask for help about scripting problems on [Nexus mods forum](https://nexusmods.com/forum).
+
+_`unable to locate script x`_ and _`is not a known user-defined type`_ are papyrus scripting problems.
+:::
+
+## Having a bug?
+
+Before reporting a bug, provide a debug log in your issue.
+
+### How can I get a debug log?
+
+<Tabs lazy>
+<TabItem value="classic" label="Classic" default>
+
+Use `PCA SE-debug.exe.cmd` instead of `PCA SE.exe`.
+
+</TabItem>
+<TabItem value="mo2" label="MO2">
+
+Edit the executable entry and use `PCA SE-debug.exe.cmd` instead of `PCA SE.exe`.
+If you do not see this file, please change the filter (bottom right of the popup) and allow any files.
+
+</TabItem>
+</Tabs>
+
+:::info
+For Skyrim LE, use `PCA LE-debug.exe.cmd` instead of `PCA LE.exe`
+:::
+
+Run the `.exe.cmd` file, redo the bug and if you still have a bug: open the log file.
+
+To open the log file, click the PCA logo button (at the top left) and select `File` - `Logs...`.
+
+## Reporting a bug
+
+To report any bugs, please fill an issue on [PCA GitHub](https://github.com/Kiyozz/papyrus-compiler-app/issues).

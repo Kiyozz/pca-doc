@@ -1,43 +1,51 @@
-import Tabs from '@theme/Tabs'
-import TabItem from '@theme/TabItem'
-
 # Support
 
-:::warning
-**We do not provide support for any papyrus scripting problem**.
-You may ask for help about scripting problems on [Nexus mods forum](https://nexusmods.com/forum).
+## What we can help with
 
-_`unable to locate script x`_ and _`is not a known user-defined type`_ are papyrus scripting problems.
+PCA is a compiler front end. We can help when **PCA** misbehaves: it does not find your Creation Kit, it will not start a compilation, a button does nothing, it crashes.
+
+:::warning[Papyrus scripting is out of scope]
+**We do not provide support for papyrus scripting problems.** Ask on the [NexusMods forum](https://nexusmods.com/forum) instead.
+
+`unable to locate script x` and `is not a known user-defined type` are scripting problems — they come from the compiler, about your code or your missing sources, not from PCA.
 :::
 
-## Having a bug?
+## Try this first
 
-Before reporting a bug, provide a debug log in your issue.
+Most reports turn out to be one of these. Each takes a minute.
 
-### How can I get a debug log?
+1. **Read the [Creation Kit report](getting-started/creation-kit)** in the settings. It names the problem and usually carries the button that fixes it.
+2. **Check [Common errors](troubleshooting/common-errors)** for the message you are seeing.
+3. **Open the [compilation logs](basic-features/compilation-logs)** and read the compiler output. The real reason a script failed is in there, not in the Failure badge.
 
-<Tabs lazy>
-  <TabItem value="classic" label="Classic" default>
-    <p>
-      Use <code>PCA SE-debug.exe.cmd</code> instead of <code>PCA SE.exe</code>.
-    </p>
-  </TabItem>
-  <TabItem value="mo2" label="MO2">
-      <p>
-        Edit the executable entry and use <code>PCA SE-debug.exe.cmd</code> instead of <code>PCA SE.exe</code>.
-        If you do not see this file, please change the filter (bottom right of the popup) and allow any files.
-      </p>
-  </TabItem>
-</Tabs>
+## Getting a debug log
 
-:::info
-For Skyrim LE, use <code>PCA LE-debug.exe.cmd</code> instead of <code>PCA LE.exe</code>
+If you still need us, come with a log.
+
+1. Open the **settings**.
+2. Under **Preferences**, set `log level` to `debug`.
+3. **Reproduce the bug.**
+4. Open the log: click the **PCA logo** at the top left, then **File** — **Logs...**.
+
+The log covers the whole app, the interface included, and lives in `%APPDATA%\PCA\logs` — though the menu is the sure way to it.
+
+:::tip[PCA had to be restarted?]
+**File** — **Previous Session...** — **Logs...** opens the log of the run before this one, which is the one holding your crash. It is greyed out when there is no previous log.
 :::
 
-Run the `.exe.cmd` file, redo the bug and if you still have a bug: open the log file.
-
-To open the log file, click the PCA logo button (at the top left) and select `File` - `Logs...`.
+:::info[Changed in 5.9.0]
+The `-debug.exe.cmd` launchers are gone, and so is the `--debug` command line flag. The log level is a setting now.
+:::
 
 ## Reporting a bug
 
-To report any bugs, please fill an issue on [PCA GitHub](https://github.com/Kiyozz/papyrus-compiler-app/issues).
+**Help** — **Report bug...** opens a new issue on GitHub. You can also go to [the issues page](https://github.com/Kiyozz/papyrus-compiler-app/issues) yourself.
+
+Attach the log file, and tell us:
+
+- **your game**, and the folder it is installed in;
+- **the PCA version**, shown in the settings under **About**;
+- **what the Creation Kit report says**, if anything;
+- **what you expected**, and what happened instead.
+
+For a script that will not compile, add the compiler output: the [compilation logs](basic-features/compilation-logs) have a copy button that puts the script, its path and the whole output on your clipboard in one click.
