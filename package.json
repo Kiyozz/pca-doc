@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "packageManager": "pnpm@12.1.0",
+  "packageManager": "pnpm@11.25.0",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start --port 3001",
