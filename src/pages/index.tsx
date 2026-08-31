@@ -38,8 +38,8 @@ function HomepageHeader() {
       <div className={styles.heroGlow} aria-hidden="true" />
       <div className="container">
         <img className={styles.heroLogo} src="/img/logo.svg" alt="" />
-        <Link className={styles.badge} to="/changelogs/2026.1">
-          <span className={styles.badgeTag}>2026.1</span>
+        <Link className={styles.badge} to="/changelogs/2026.2">
+          <span className={styles.badgeTag}>2026.2</span>
           Starfield, namespaces and a setup wizard
         </Link>
         <h1 className={styles.heroTitle}>
