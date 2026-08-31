@@ -7,8 +7,15 @@ import styles from "./DownloadButton.module.css";
 
 export default function DownloadButton({
   className,
+  variant = "primary",
+  direction = "down",
 }: {
   className?: string;
+  /* `inverse` is for the dark panels, where a blue button would sink into
+     the gradient behind it */
+  variant?: "primary" | "inverse";
+  /* near the bottom of the page a menu opening downwards lands off screen */
+  direction?: "down" | "up";
 }): ReactNode {
   const [isOpen, setOpen] = useState(false);
   const container = useRef<HTMLDivElement>(null);
@@ -49,12 +56,16 @@ export default function DownloadButton({
         "dropdown--right",
         isOpen && "dropdown--show",
         styles.dropdown,
+        direction === "up" && styles.up,
         className,
       )}
     >
       <button
         type="button"
-        className="button button--primary text--white button--lg"
+        className={clsx(
+          "button button--lg",
+          variant === "primary" ? styles.trigger : "button--secondary",
+        )}
         aria-haspopup="menu"
         aria-expanded={isOpen}
         onClick={() => setOpen((open) => !open)}

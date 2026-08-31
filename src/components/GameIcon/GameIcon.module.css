@@ -1,0 +1,38 @@
+.icon {
+  display: inline-block;
+  flex: none;
+  /* sized off the label it sits next to, so it scales with the button */
+  height: 1.3em;
+  /* the download page puts these inside inline buttons; the pills are flex
+     containers and ignore it */
+  vertical-align: -0.3em;
+  background-color: black;
+  -webkit-mask: var(--pca-game-icon) no-repeat center / contain;
+  mask: var(--pca-game-icon) no-repeat center / contain;
+}
+
+html[data-theme="dark"] .icon {
+  background-color: white;
+}
+
+:global(.from-download-page).icon {
+  background-color: currentColor;
+}
+
+/* one aspect ratio per artwork. The emblem is the only tall one, so it is
+   given extra height to carry the same weight as the two square marks. */
+.skyrim {
+  --pca-game-icon: url("/img/skyrim.svg");
+  aspect-ratio: 484 / 915;
+  height: 1.7em;
+}
+
+.fallout4 {
+  --pca-game-icon: url("/img/fallout-4.png");
+  aspect-ratio: 1;
+}
+
+.starfield {
+  --pca-game-icon: url("/img/starfield.svg");
+  aspect-ratio: 1;
+}

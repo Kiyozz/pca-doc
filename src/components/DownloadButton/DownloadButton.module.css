@@ -10,6 +10,44 @@
   gap: 0.5rem;
 }
 
+/* the hero and the closing panel centre their text; a menu never is */
+.dropdown :global(.dropdown__menu) {
+  text-align: left;
+  width: 100%;
+}
+
+/* the brand gradient, as a button. Infima's `button--primary` is a flat
+   fill: this is the one control on the page that carries the identity. */
+.trigger {
+  background: var(--pca-gradient);
+  border: 0;
+  color: #ffffff;
+  box-shadow: 0 8px 24px -10px rgba(79, 125, 255, 0.9);
+  transition:
+    transform var(--ifm-transition-fast) ease,
+    box-shadow var(--ifm-transition-fast) ease;
+}
+
+.trigger:hover,
+.trigger:active {
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -10px rgba(79, 125, 255, 1);
+}
+
+/* Infima only knows how to open downwards. Flip the menu and the slide-in it
+   animates with, or it appears sliding the wrong way. */
+.up :global(.dropdown__menu) {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 0.5rem;
+  transform: translateY(0.5rem);
+}
+
+.up button[aria-expanded="true"] + :global(.dropdown__menu) {
+  transform: translateY(0);
+}
+
 .caret {
   border-top: 0.35rem solid;
   border-right: 0.3rem solid transparent;
@@ -17,6 +55,18 @@
   transition: transform var(--ifm-transition-fast);
 }
 
-.dropdown:global(.dropdown--show) .caret {
+/* driven by the button's own state rather than Infima's `dropdown--show`:
+   a local class compounded with `:global()` loses the global half through
+   the CSS modules compiler, and the caret ends up permanently flipped */
+.dropdown button[aria-expanded="true"] .caret {
   transform: rotate(180deg);
+}
+
+/* the menu is above the button here, so the caret starts pointing at it */
+.up button[aria-expanded="false"] .caret {
+  transform: rotate(180deg);
+}
+
+.up button[aria-expanded="true"] .caret {
+  transform: none;
 }

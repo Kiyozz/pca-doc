@@ -4,29 +4,63 @@
  * work well for content-centric websites.
  */
 
-@import "~react-slideshow-image/dist/styles.css";
-
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2c5896;
-  --ifm-color-primary-dark: #284f87;
-  --ifm-color-primary-darker: #254b80;
-  --ifm-color-primary-darkest: #1f3e69;
-  --ifm-color-primary-light: #3061a5;
-  --ifm-color-primary-lighter: #3365ad;
-  --ifm-color-primary-lightest: #3972c3;
+  /* the ramp is the logo blue, hsl(203 100% 34.5%), stepped in lightness */
+  --ifm-color-primary: #006cb0;
+  --ifm-color-primary-dark: #0065a4;
+  --ifm-color-primary-darker: #00629f;
+  --ifm-color-primary-darkest: #00578d;
+  --ifm-color-primary-light: #0074bc;
+  --ifm-color-primary-lighter: #0077c2;
+  --ifm-color-primary-lightest: #0082d3;
   --ifm-code-font-size: 95%;
+  /* Infima leaves this transparent, which leaves the page on the browser's
+     default canvas. The hero fades into it, so it has to be a real colour. */
+  --ifm-background-color: #ffffff;
+
+  /* Brand. The gradient carries the identity: it is the only place the
+     violet appears, everything else stays the logo blue. */
+  --pca-blue: #0081d1;
+  --pca-violet: #a259ff;
+  --pca-gradient: linear-gradient(
+    100deg,
+    #0081d1 0%,
+    #4f7dff 52%,
+    #a259ff 100%
+  );
+  /* the hero and the footer share one near-black, so the page is bookended */
+  --pca-ink: #080b12;
+  --pca-ink-soft: #0f1420;
+  --pca-ink-line: rgba(255, 255, 255, 0.1);
+  --pca-ink-text: #aab4c5;
+
+  --ifm-footer-padding-vertical: 3.5rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  --ifm-color-primary: #3388ff;
-  --ifm-color-primary-dark: #1476ff;
-  --ifm-color-primary-darker: #056dff;
-  --ifm-color-primary-darkest: #0059d6;
-  --ifm-color-primary-light: #529aff;
-  --ifm-color-primary-lighter: #61a3ff;
-  --ifm-color-primary-lightest: #8fbeff;
+  --ifm-color-primary: #33b1ff;
+  --ifm-color-primary-dark: #0fa3ff;
+  --ifm-color-primary-darker: #009dff;
+  --ifm-color-primary-darkest: #007ecc;
+  --ifm-color-primary-light: #57beff;
+  --ifm-color-primary-lighter: #66c4ff;
+  --ifm-color-primary-lightest: #99d8ff;
+
+  /* Docusaurus' default greys are flat. Tinting them towards the hero's
+     blue-black ties the whole site to the brand. */
+  --ifm-background-color: #0d1117;
+  --ifm-background-surface-color: #141a23;
+  --ifm-navbar-background-color: rgba(13, 17, 23, 0.85);
+  --ifm-toc-border-color: #222b38;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .navbar {
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1c242f;
+  box-shadow: none;
 }
 
 .docusaurus-highlight-code-line {
@@ -40,10 +74,203 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-button.nav.default-nav:first-of-type {
-  margin-right: -45px;
+/* Footer
+   ------------------------------------------------------------------ */
+
+.footer--dark {
+  --ifm-footer-background-color: var(--pca-ink);
+  --ifm-footer-color: var(--pca-ink-text);
+  --ifm-footer-link-color: var(--pca-ink-text);
+  --ifm-footer-title-color: #ffffff;
+
+  position: relative;
 }
 
-button.nav.default-nav:last-of-type {
-  margin-left: -45px;
+/* the gradient hairline reads as the bottom edge of the page, and echoes
+   the hero at the other end of it */
+.footer--dark::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--pca-gradient);
+}
+
+.footer__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.footer__link-item {
+  display: inline-block;
+  transition: color var(--ifm-transition-fast) ease;
+}
+
+.footer__link-item:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer__bottom {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--pca-ink-line);
+}
+
+.footer__logo {
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.footer__copyright {
+  font-size: 0.875rem;
+  color: #7b8798;
+}
+
+/* set from the `copyright` HTML in docusaurus.config.js */
+.footer__tagline {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #dbe2ec;
+}
+
+/* Reveal on scroll
+   ------------------------------------------------------------------
+   Driven by an IntersectionObserver — see src/clientModules/reveal.ts.
+
+   `animation-timeline: view()` was the obvious way to do this without any
+   JavaScript, but it cannot work at the end of a document: the page runs
+   out of scroll before the range runs out, so the last elements freeze
+   half faded and read as an overlay over the bottom of the page.
+
+   The hidden state hangs off `data-pca-js`, set by an inline head script,
+   so the page still reads with JavaScript off. It has to be an attribute:
+   Docusaurus rewrites the class of <html> when it hydrates. */
+
+[data-pca-js] .pca-reveal {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+[data-pca-js] .pca-reveal--in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 450ms ease-out,
+    transform 450ms ease-out;
+  /* set per item by the grids, to cascade rather than land all at once */
+  transition-delay: var(--pca-reveal-delay, 0ms);
+}
+
+/* What this preference asks for is less movement, not less information: the
+   fade stays and only the travel goes, so the reveal still reads. */
+@media (prefers-reduced-motion: reduce) {
+  [data-pca-js] .pca-reveal {
+    transform: none;
+  }
+
+  [data-pca-js] .pca-reveal--in {
+    transition: opacity 300ms ease-out;
+    transform: none;
+  }
+}
+
+/* Admonitions
+   ------------------------------------------------------------------
+   Infima paints a flat 5px left border. A border cannot hold a gradient, so
+   the bar is a pseudo-element and the border is removed. */
+
+.theme-admonition {
+  position: relative;
+  overflow: hidden;
+  border-left-width: 0;
+}
+
+.theme-admonition::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: var(--pca-admonition-bar);
+}
+
+.theme-admonition-note {
+  --pca-admonition-bar: linear-gradient(#a3b0c2, #64748b);
+}
+
+.theme-admonition-tip {
+  --pca-admonition-bar: linear-gradient(#34d399, #0d9488);
+}
+
+.theme-admonition-info {
+  --pca-admonition-bar: var(--pca-gradient);
+}
+
+.theme-admonition-warning {
+  --pca-admonition-bar: linear-gradient(#fbbf24, #f97316);
+}
+
+.theme-admonition-danger {
+  --pca-admonition-bar: linear-gradient(#f87171, #e11d48);
+}
+
+/* Navbar icons
+   ------------------------------------------------------------------
+   Masks rather than <img>: the glyph takes the link's colour, so it follows
+   the theme and the hover state on its own. */
+
+/* matches both the navbar link and its twin in the mobile sidebar */
+[class*="navbar-icon--"]::before {
+  content: "";
+  display: inline-block;
+  flex: none;
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-right: 0.4rem;
+  vertical-align: -0.2em;
+  background-color: currentColor;
+  -webkit-mask: var(--pca-navbar-icon) no-repeat center / contain;
+  mask: var(--pca-navbar-icon) no-repeat center / contain;
+}
+
+.navbar-icon--docs {
+  --pca-navbar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20'/%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z'/%3E%3C/svg%3E");
+}
+
+.navbar-icon--changelogs {
+  --pca-navbar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12a9 9 0 1 0 3-6.7L3 8'/%3E%3Cpath d='M3 3v5h5'/%3E%3Cpath d='M12 7v5l3.5 2'/%3E%3C/svg%3E");
+}
+
+.navbar-icon--download {
+  --pca-navbar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3Cpath d='M12 15V3'/%3E%3C/svg%3E");
+}
+
+.navbar-icon--github {
+  /* GitHub's own `mark-github` octicon, unaltered */
+  --pca-navbar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z'/%3E%3C/svg%3E");
+  border-radius: 9999px;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: currentColor;
+  margin-right: 0.25rem;
+}
+
+/* the GitHub link carries no label: the icon is the whole control */
+.navbar-icon--github::before {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-right: 0;
+}
+
+.navbar-icon--github:hover {
+  opacity: 0.75;
+  background-color: var(--ifm-color-emphasis-200);
 }

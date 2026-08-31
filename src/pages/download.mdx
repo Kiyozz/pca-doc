@@ -10,7 +10,10 @@ keywords:
 ---
 
 import Link from "@docusaurus/Link";
+import clsx from "clsx";
+import GameIcon from "@site/src/components/GameIcon/GameIcon";
 import { downloads } from "../../env";
+import styles from "@site/src/pages/download.module.css";
 
 # Download PCA
 
@@ -22,9 +25,10 @@ Since 5.9.0 there is a single executable, `PCA.exe`, for every one of them: down
   {downloads.map((download) => (
     <Link
       key={download.label}
-      className="button button--primary margin-right--sm margin-bottom--sm"
+      className={clsx("button button--primary margin-right--sm margin-bottom--sm", styles.mainButton)}
       href={download.href}
     >
+      <GameIcon anchor={download.anchor} className="margin-right--sm from-download-page" />
       {download.label}
     </Link>
   ))}
@@ -39,7 +43,9 @@ New to PCA? The [installation guide](/docs/introduction/installation) walks you 
 <Link
   className="button button--primary margin-bottom--md"
   href={downloads[0].href}
->Download PCA for Skyrim SE / AE</Link>
+>
+  <span>Download PCA for Skyrim SE / AE</span>
+</Link>
 
 Requires the **Skyrim Special Edition: Creation Kit**, free on Steam.
 
@@ -48,9 +54,11 @@ Extract `Data\Scripts.zip` into `Data`, so the source scripts land in `Data\Sour
 ## Skyrim Legendary Edition
 
 <Link
-  className="button button--primary margin-bottom--md"
+  className={clsx("button button--primary margin-bottom--md", styles.mainButton)}
   href={downloads[1].href}
->Download PCA for Skyrim LE</Link>
+>
+  <span>Download PCA for Skyrim LE</span>
+</Link>
 
 Requires the **Skyrim Creation Kit**. It has no Steam store page: install it from Library — Tools.
 
@@ -61,7 +69,9 @@ Extract `Data\Scripts.rar` into `Data\Scripts`, so the source scripts land in `D
 <Link
   className="button button--primary margin-bottom--md"
   href={downloads[2].href}
->Download PCA for Skyrim VR</Link>
+>
+  <span>Download PCA for Skyrim VR</span>
+</Link>
 
 There is no Creation Kit for Skyrim VR. Install the **Skyrim Special Edition** one, choosing the Skyrim VR folder at install time — its compiler works for VR just as well.
 
@@ -70,7 +80,9 @@ There is no Creation Kit for Skyrim VR. Install the **Skyrim Special Edition** o
 <Link
   className="button button--primary margin-bottom--md"
   href={downloads[3].href}
->Download PCA for Fallout 4</Link>
+>
+  <span>Download PCA for Fallout 4</span>
+</Link>
 
 Requires the **Fallout 4: Creation Kit**, free on Steam. The Bethesda Launcher was shut down in 2022.
 
@@ -83,7 +95,9 @@ PCA supports [Papyrus namespaces](/docs/advanced-features/namespaces) and import
 <Link
   className="button button--primary margin-bottom--md"
   href={downloads[4].href}
->Download PCA for Starfield</Link>
+>
+  <span>Download PCA for Starfield</span>
+</Link>
 
 Requires the **Starfield: Creation Kit**, free on Steam.
 

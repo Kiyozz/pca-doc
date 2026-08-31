@@ -1,0 +1,70 @@
+.section {
+  padding: 2rem 0 5rem;
+}
+
+.panel {
+  position: relative;
+  padding: 3.5rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  text-align: center;
+  /* the same glow as the hero, so the page closes the way it opened. It is
+     painted as a background rather than an overflowing layer: the panel has
+     to stay unclipped for the Download menu to escape it. */
+  background:
+    radial-gradient(
+      28rem 18rem at 50% 0,
+      rgba(79, 125, 255, 0.5),
+      transparent 70%
+    ),
+    var(--pca-ink);
+  color: #ffffff;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.text {
+  margin-bottom: 2rem;
+  color: var(--pca-ink-text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+}
+
+.ghost {
+  color: #ffffff;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.ghost:hover {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+  text-decoration: none;
+}
+
+/* a flat list of the pages worth reaching from the home page */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.link {
+  font-size: 0.9375rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.link:hover {
+  color: var(--ifm-color-primary);
+}

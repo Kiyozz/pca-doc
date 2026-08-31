@@ -1,3 +1,28 @@
-.slider {
+.section {
+  padding: 1rem 0 4rem;
+}
+
+/* one screenshot, kept small on purpose: the features above carry the page,
+   this only answers "what does it look like" */
+.frame {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 14px;
+  background: var(--ifm-background-surface-color);
+}
+
+.shot {
+  display: block;
+  width: 100%;
   border-radius: 8px;
+}
+
+.caption {
+  margin-top: 0.75rem;
+  padding-bottom: 0.25rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-600);
 }

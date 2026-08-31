@@ -1,11 +1,110 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  padding: 4rem 0;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  max-width: 40rem;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 996px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  position: relative;
+  padding: 1.75rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 14px;
+  background: var(--ifm-background-surface-color);
+  transition:
+    border-color var(--ifm-transition-fast) ease,
+    box-shadow var(--ifm-transition-fast) ease;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-emphasis-400);
+  box-shadow: 0 12px 32px -20px rgba(8, 11, 18, 0.7);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 1.25rem;
+  border-radius: 11px;
+  background: var(--pca-gradient);
+  color: #ffffff;
+}
+
+.icon svg {
+  width: 1.375rem;
+  height: 1.375rem;
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+/* the whole card is the link target, the title just carries the words */
+.cardTitle a {
+  color: inherit;
+}
+
+.cardTitle a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.cardTitle a:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.cardText {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* a card and the two beside it enter the viewport together; the delay makes
+   the row land left to right instead of blinking in as a block. It restarts
+   on the second row, which arrives on its own. */
+.card:nth-child(3n + 2) {
+  --pca-reveal-delay: 70ms;
+}
+
+.card:nth-child(3n) {
+  --pca-reveal-delay: 140ms;
 }

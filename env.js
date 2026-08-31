@@ -10,12 +10,24 @@ const downloadPageLink = "/download";
 // One entry per supported game. They all point to the same NexusMods page for
 // now: PCA ships a single executable, and the page is hosted under Skyrim SE.
 // Give a game its own link here the day one exists.
+//
+// `anchor` is the heading id of that game on the download page. Keep both in
+// sync: the home page links to those sections, and a typo would break the
+// build.
 const downloads = [
-  { label: "Skyrim SE / AE", href: nexusModsSELink },
-  { label: "Skyrim LE", href: nexusModsSELink },
-  { label: "Skyrim VR", href: nexusModsSELink },
-  { label: "Fallout 4", href: nexusModsSELink },
-  { label: "Starfield", href: nexusModsSELink },
+  {
+    label: "Skyrim SE / AE",
+    href: nexusModsSELink,
+    anchor: "skyrim-special-edition-and-anniversary-edition",
+  },
+  {
+    label: "Skyrim LE",
+    href: nexusModsSELink,
+    anchor: "skyrim-legendary-edition",
+  },
+  { label: "Skyrim VR", href: nexusModsSELink, anchor: "skyrim-vr" },
+  { label: "Fallout 4", href: nexusModsSELink, anchor: "fallout-4" },
+  { label: "Starfield", href: nexusModsSELink, anchor: "starfield" },
 ];
 
 module.exports = {

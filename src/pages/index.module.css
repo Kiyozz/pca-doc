@@ -3,80 +3,204 @@
  * and scoped locally.
  */
 
-.heroAppIcon {
-  width: 60px;
-  height: 60px;
-}
-
-.heroBg {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.heroTitle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.heroTitle span {
-  display: block;
-  margin-left: 1rem;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
-}
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  /* noinspection CssUnknownTarget */
-  background: url("/img/dragon.jpeg") no-repeat bottom / cover;
-  color: white;
-}
-
-@media (min-width: 997px) {
-  .heroBanner {
-    /* noinspection CssUnknownTarget */
-    background: url("/img/dragon@2x.jpeg") no-repeat bottom / cover;
-  }
-}
-
-@media (min-width: 1200px) {
-  .heroBanner {
-    /* noinspection CssUnknownTarget */
-    background: url("/img/dragon@3x.jpeg") no-repeat bottom / cover;
-  }
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
 }
 
-.main {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* Hero
+   ------------------------------------------------------------------
+   The hero is dark in both themes: it is the one place the brand gets to
+   speak, and the gradient needs a dark ground to read on. */
+
+.hero {
+  position: relative;
+  /* no `overflow: hidden` here: the Download menu opens inside the hero and
+     was being clipped. Nothing overflows anyway, both layers are inset: 0. */
+  isolation: isolate;
+  padding: 5rem 0 5.5rem;
+  text-align: center;
+  background: var(--pca-ink);
+  color: #ffffff;
 }
 
-@media screen and (max-width: 966px) {
-  .heroBanner {
-    padding: 2rem;
+@media (max-width: 996px) {
+  .hero {
+    padding: 4rem 0 5rem;
   }
+}
+
+/* the dragon, kept as a texture rather than a photograph: enough to say
+   which game this is about, not enough to fight the text */
+.heroImage {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url("/img/dragon.jpeg") no-repeat center / cover;
+  opacity: 0.22;
+  filter: grayscale(0.4);
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+}
+
+@media (min-width: 997px) {
+  .heroImage {
+    background-image: url("/img/dragon@2x.jpeg");
+  }
+}
+
+@media (min-width: 1200px) {
+  .heroImage {
+    background-image: url("/img/dragon@3x.jpeg");
+  }
+}
+
+.heroGlow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(
+      42rem 28rem at 18% 0%,
+      rgba(0, 129, 209, 0.5),
+      transparent 70%
+    ),
+    radial-gradient(
+      38rem 26rem at 85% 15%,
+      rgba(162, 89, 255, 0.4),
+      transparent 70%
+    );
+}
+
+/* In dark mode the hero hands over to the page instead of stopping at an
+   edge. Against white there is nothing to blend into: the ramp only turns
+   grey and drags the text with it, so the edge stays crisp. */
+html[data-theme="dark"] .hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 8rem;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--ifm-background-color)
+  );
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+  /* the version tag sits flush in the pill: only the label side is padded */
+  padding: 0.3rem 1rem 0.3rem 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.875rem;
+  color: #dbe2ec;
+  transition: border-color var(--ifm-transition-fast) ease;
+}
+
+.badge:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.badgeTag {
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: var(--pca-gradient);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.heroLogo {
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 1.5rem;
+}
+
+.heroTitle {
+  max-width: 22ch;
+  margin: 0 auto 1.5rem;
+  font-size: clamp(2.25rem, 5.5vw, 3.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* -webkit-background-clip is what every browser still implements */
+.gradientText {
+  background: var(--pca-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroSubtitle {
+  max-width: 44rem;
+  margin: 0 auto 2.5rem;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #c4cddc;
+}
+
+/* the docs' code chip is a light box: on the hero it has to be a dark one */
+.heroSubtitle code {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.1);
+  color: #e7edf6;
 }
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
 }
 
-.ml4 {
-  margin-left: 1rem;
+.secondaryButton {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  background: transparent;
+}
+
+.secondaryButton:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.heroMeta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.25rem;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  color: #8d99ab;
+}
+
+.heroMeta li + li::before {
+  content: "·";
+  margin-right: 1.25rem;
+}
+
+/* the items stack one per line here, and a separator would open the line */
+@media (max-width: 640px) {
+  .heroMeta {
+    flex-direction: column;
+  }
+
+  .heroMeta li + li::before {
+    content: none;
+  }
 }

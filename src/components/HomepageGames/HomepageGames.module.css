@@ -1,0 +1,71 @@
+.games {
+  padding: 4rem 0 1rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  max-width: 34rem;
+  margin: 0 auto 2rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* a real link per game, not a decorative chip: these are the words people
+   type into a search engine */
+.game {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.25rem 0.6rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-background-surface-color);
+  transition:
+    border-color var(--ifm-transition-fast) ease,
+    transform var(--ifm-transition-fast) ease;
+}
+
+.game:hover {
+  border-color: var(--pca-blue);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.icon {
+  flex: none;
+  color: var(--pca-blue);
+}
+
+/* same cascade as the feature cards, left to right */
+.list li:nth-child(2) {
+  --pca-reveal-delay: 60ms;
+}
+
+.list li:nth-child(3) {
+  --pca-reveal-delay: 120ms;
+}
+
+.list li:nth-child(4) {
+  --pca-reveal-delay: 180ms;
+}
+
+.list li:nth-child(5) {
+  --pca-reveal-delay: 240ms;
+}
