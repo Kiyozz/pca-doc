@@ -19,7 +19,7 @@ For Skyrim SE, AE and VR, it can also be an outdated copy of the game scripts le
 
 SKSE or F4SE is installed, but its source scripts are not.
 
-Extract them into `Data\Source\Scripts` for Skyrim SE, AE and VR, into `Data\Scripts\Source` for Skyrim LE and Fallout 4. See [Script extenders](../introduction/installation#script-extenders).
+Copy the `Data\Scripts\Source` folder of the extender's archive into the game's `Data` folder, for every game. See [Script extenders](../introduction/installation#script-extenders).
 
 PCA raises this as a warning in the [Creation Kit report](../getting-started/creation-kit#the-script-extender-has-no-source-scripts).
 

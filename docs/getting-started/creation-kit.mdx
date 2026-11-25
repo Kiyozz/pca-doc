@@ -77,10 +77,12 @@ PCA imports the LE folder **first**: an outdated copy of the game scripts left i
 
 Move everything from `Data\Scripts\Source` to `Data\Source\Scripts`. PCA opens the folder for you.
 
+The SKSE scripts are the exception: they belong in `Data\Scripts\Source`, so that they win over the game ones. When that folder holds `SKSE.psc`, PCA does not raise this warning.
+
 ### The script extender has no source scripts
 
 SKSE or F4SE is installed, but its `.psc` are not.
 
 Compilation works, but any script using an extender function fails.
 
-Extract the extender's `.psc` into `Data\Source\Scripts` for Skyrim SE, AE and VR, into `Data\Scripts\Source` for Skyrim LE and Fallout 4 — the folder your game reads, which is not always the one the archive is laid out for. See [Script extenders](../introduction/installation#script-extenders).
+Copy the `Data\Scripts\Source` folder of the extender's archive into the game's `Data` folder, as it is laid out — for every game, Skyrim SE, AE and VR included. See [Script extenders](../introduction/installation#script-extenders).
