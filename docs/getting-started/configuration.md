@@ -58,15 +58,19 @@ The integration was removed. Refer to [MO2](mo2).
 
 | Setting | What it does | Default |
 | --- | --- | --- |
-| `enable` | Sends anonymous data about how you use PCA | On |
+| `enable` | Sends anonymous data about how you use PCA | Off, until you answer |
 
-Support PCA authors by providing anonymous data about how you use PCA.
+Usage data is **opt-in**. A dialog asks for your consent once the setup is done, and nothing is sent until you accept. If you decline, nothing is sent at all. You can change your mind at any time in the settings.
 
-PCA collects telemetry data for the purpose of analyzing used functionality and improving relevant features.
+When enabled, PCA sends the features you use — for example the number of scripts compiled, the game picked, the theme, the PCA version — and the errors of the app.
 
-Examples of collected data include group and compilation data, errors, and timestamps of various app events.
+It never sends an identifier, the content of your scripts, a file path or your user name. PCA strips paths and user names from error messages and stack traces before sending them, and the telemetry server applies the same rules again when it stores and shows them.
 
-**The collected data is public**, and browsable at [telemetry.pca.kiyozz.com](https://telemetry.pca.kiyozz.com/).
+**The collected data is public**, and browsable at [telemetry.pca.kiyozz.com](https://telemetry.pca.kiyozz.com/): a dashboard per app, and an explorer of the events.
+
+:::info[Changed in 5.9.2]
+Usage data used to be on by default. Every existing install was switched off, and PCA asks again.
+:::
 
 ## About
 

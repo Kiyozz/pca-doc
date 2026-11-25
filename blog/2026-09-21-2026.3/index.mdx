@@ -1,0 +1,22 @@
+---
+slug: 2026.3
+title: 2026.3
+authors: [wk]
+tags: [changelog]
+---
+
+# 2026.3
+
+_Application version 5.9.2._
+
+Usage data is now opt-in, and never carries a path or a user name.
+
+{/* truncate */}
+
+## Usage data
+
+- **Opt-in.** A dialog asks for your consent once the setup is done, and nothing is sent until you accept. Decline, and nothing is sent at all. You can change your mind at any time in the settings.
+- **Everyone is asked again.** Usage data used to be on by default: every existing install is switched off, whatever it had before, and gets the same question.
+- **No paths, no user names.** PCA strips file paths and user names from what it sends, error messages and stack traces included. The telemetry server applies the same rules again when it stores and shows them.
+
+What is sent, and what is not, is detailed in [Configuration](/docs/getting-started/configuration#usage-data). The collected data stays public, at [telemetry.pca.kiyozz.com](https://telemetry.pca.kiyozz.com/).

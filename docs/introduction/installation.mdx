@@ -106,21 +106,23 @@ Their Creation Kit only reads `Data\Source\Scripts`. `Data\Scripts\Source` is th
 PCA imports the LE folder first, so an outdated copy of the game scripts left in there shadows the one your game ships, and the compilation fails for no apparent reason.
 Move everything from `Data\Scripts\Source` to `Data\Source\Scripts`.
 
-PCA raises this as a warning in the Creation Kit report.
+PCA raises this as a warning in the Creation Kit report — except when that folder holds the SKSE scripts, which belong there, see [Script extenders](#script-extenders).
 :::
 
 ## Script extenders
 
-If SKSE (Skyrim) or F4SE (Fallout 4) is installed, its source scripts have to be extracted too — into the folder your game reads, which is not the one the archive is laid out for:
+If SKSE (Skyrim) or F4SE (Fallout 4) is installed, its source scripts have to be installed too. Copy the `Data\Scripts\Source` folder of the extender's archive into the game's `Data` folder, as it is laid out:
 
-| Game | Extract the extender's `.psc` into |
+| Game | The extender's `.psc` go into |
 | --- | --- |
-| Skyrim SE, AE, VR | `Data\Source\Scripts` |
+| Skyrim SE, AE, VR | `Data\Scripts\Source` |
 | Skyrim LE | `Data\Scripts\Source` |
 | Fallout 4 | `Data\Scripts\Source` |
 
-:::warning[Skyrim SE, AE and VR]
-The SKSE archive ships its scripts under `Data\Scripts\Source`, the Skyrim LE folder. Copying it as is puts them where your Creation Kit never looks — and where PCA warns you about, see above. Move them to `Data\Source\Scripts`.
+:::info[Skyrim SE, AE and VR]
+`Data\Scripts\Source` is the Skyrim LE folder, but it is the right place for the SKSE scripts. SKSE ships its own copies of `Actor.psc`, `Form.psc` and others, which add the extender functions and have to win over the ones the game ships. PCA imports that folder **first**, so they do.
+
+When that folder holds `SKSE.psc`, PCA does not raise the [outdated copy warning](../getting-started/creation-kit#source-scripts-are-in-scriptssource-skyrim-se-ae-vr) about it.
 :::
 
 Without those `.psc`, compilation still works, but any script calling an extender function fails.
