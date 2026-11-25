@@ -37,3 +37,14 @@ PCA now sees `Data` the way the game does, mods included, and no configuration i
 You can create one entry per instance and pass the configuration on the command line, so each one opens on the right game.
 Refer to [Application Parameters](../advanced-features/application-parameters).
 :::
+
+## Script extenders and Root Builder
+
+Install SKSE or F4SE **as a mod**, its source scripts included, and let MO2 provide them.
+With Root Builder, the loader can live in a mod too.
+
+Those files only exist for the programs MO2 launches. Started on its own, PCA cannot see them: the [Creation Kit report](creation-kit#the-script-extenders-source-scripts-cannot-be-found) warns that the extender's source scripts cannot be found, and any script calling an extender function fails. Start PCA from MO2, and both go away.
+
+:::info[Older MO2 on Windows 11]
+Before 5.9.3 (2026.4), PCA could miss files that only live in a mod when MO2 shipped a usvfs older than 0.5.7.1, on recent Windows 11 builds — the compiler saw them, PCA did not. It showed as a wrong SKSE warning, or as `Data\Scripts cannot be created (ENOENT)`. Update PCA.
+:::
