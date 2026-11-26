@@ -30,6 +30,8 @@ Below those fields, the [Creation Kit report](creation-kit) tells you what is st
 | `output folder` | Where the compiled `.pex` are written | _empty_ — the game's `Data\Scripts` |
 | `anonymize compiled scripts` | Strips your path, user name and computer name from the `.pex` header | On |
 
+Every folder picker opens on the field's current path — on the game folder for an empty `output folder` — rather than on the last folder Windows remembers.
+
 Lower `concurrent scripts` if your machine stalls when a compilation starts.
 
 With a [namespace](../advanced-features/namespaces), the `.pex` still goes into its namespace subfolder of the output folder.

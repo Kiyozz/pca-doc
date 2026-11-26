@@ -79,10 +79,16 @@ Move everything from `Data\Scripts\Source` to `Data\Source\Scripts`. PCA opens t
 
 The SKSE scripts are the exception: they belong in `Data\Scripts\Source`, so that they win over the game ones. When that folder holds `SKSE.psc`, PCA does not raise this warning.
 
-### The script extender has no source scripts
+### The script extender's source scripts cannot be found
 
-SKSE or F4SE is installed, but its `.psc` are not.
+SKSE or F4SE is installed, but PCA cannot find its `.psc`.
 
 Compilation works, but any script using an extender function fails.
 
 Copy the `Data\Scripts\Source` folder of the extender's archive into the game's `Data` folder, as it is laid out — for every game, Skyrim SE, AE and VR included. See [Script extenders](../introduction/installation#script-extenders).
+
+:::tip[Using MO2?]
+Install the extender's archive **as a mod** instead, and launch PCA **from MO2**.
+Files from mods, Root Builder ones included, only exist for the programs MO2 launches: started on its own, PCA cannot see them, and raises this warning even though everything is installed.
+See [MO2](mo2).
+:::

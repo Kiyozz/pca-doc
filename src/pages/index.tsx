@@ -38,9 +38,9 @@ function HomepageHeader() {
       <div className={styles.heroGlow} aria-hidden="true" />
       <div className="container">
         <img className={styles.heroLogo} src="/img/logo.svg" alt="" />
-        <Link className={styles.badge} to="/changelogs/2026.3">
-          <span className={styles.badgeTag}>2026.3</span>
-          Opt-in usage data, no paths or user names
+        <Link className={styles.badge} to="/changelogs/2026.4">
+          <span className={styles.badgeTag}>2026.4</span>
+          MO2 and SKSE fixes
         </Link>
         <h1 className={styles.heroTitle}>
           Compile Papyrus{" "}

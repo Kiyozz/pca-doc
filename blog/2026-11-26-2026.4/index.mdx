@@ -1,0 +1,29 @@
+---
+slug: 2026.4
+title: 2026.4
+authors: [wk]
+tags: [changelog]
+---
+
+# 2026.4
+
+_Application version 5.9.3._
+
+Fixes for MO2 users, the SKSE check, and the folder pickers — and no more RPC timeouts.
+
+{/* truncate */}
+
+## MO2
+
+- **Files from mods are found again.** On recent Windows 11 builds, with an MO2 older than usvfs 0.5.7.1, PCA could miss files and folders that only live in MO2's virtual file system — mods, and Root Builder ones — while the compiler saw them. That is fixed, and so is the `Data\Scripts cannot be created (ENOENT)` error when compiling from MO2.
+- **Folder pickers you can reach.** Each folder picker in the settings now opens on the field's current path, or on the game folder for an empty output folder, instead of the last folder Windows remembers, which MO2 users could not reach.
+
+## SKSE
+
+- **The loader and the SKSE scripts are found under MO2**, Root Builder included, so the "source scripts cannot be found" warning no longer shows up by mistake.
+- **No more legacy folder warning for SKSE.** The SKSE scripts left in `Data\Scripts\Source`, where the SKSE archive puts them, are where they belong: their copies of `Actor.psc`, `Form.psc` and others have to win over the game ones. [More details](/docs/introduction/installation#script-extenders).
+- **The warning speaks to MO2 users.** It now tells them to install SKSE as a mod and launch PCA from MO2: mod files, Root Builder ones included, are only visible there. [More details](/docs/getting-started/mo2#script-extenders-and-root-builder).
+
+## Fixes
+
+- **`RPC request timed out after 30000ms` is gone.** A compilation, a Creation Kit check, an archive extraction or a file dialog taking more than 30 seconds no longer fails.
